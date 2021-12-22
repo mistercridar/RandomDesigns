@@ -1,3 +1,5 @@
+import 'package:attendance/Dashboard.dart';
+import 'package:attendance/HomePage.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +10,7 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
+  //final List<Widget> _tabItems = [Dashboard(), HomePage(), Dashboard(),Dashboard(),Dashboard()];
   int _page = 0;
   final GlobalKey<CurvedNavigationBarState> _bottomNavigationKey = GlobalKey();
   @override
@@ -15,6 +18,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
     return Scaffold(
         bottomNavigationBar: CurvedNavigationBar(
           key: _bottomNavigationKey,
+
           index: 0,
           height: 60.0,
           items: <Widget>[
@@ -38,11 +42,13 @@ class _BottomNavBarState extends State<BottomNavBar> {
           letIndexChange: (index) => true,
         ),
         body:
+      //  _tabItems[_page],
         Container(
           color: Colors.white,
           child: Center(
             child: Column(
               children: <Widget>[
+
                 Text(_page.toString(), textScaleFactor: 10.0),
                 ElevatedButton(
                   child: Text('Go To Page of index 1'),
@@ -56,7 +62,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
               ],
             ),
           ),
-        ));
+        )
+    );
 
   }
   Widget bottomItem(
